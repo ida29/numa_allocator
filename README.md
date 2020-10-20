@@ -1,2 +1,3 @@
-# numa_allocator
-c++ numa allocator for numa.
+# numa_allocater
+
+c++11 memory allocater for numa.
