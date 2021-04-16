@@ -55,6 +55,17 @@ struct NumaAllocator {
         numa_free(p, sizeof(T) * n);
     }
 
+    template <typename U, typename... Args>
+    void construct(U* ptr, Args&&... args)
+    {
+        new (ptr) U(std::forward<Args>(args)...);
+    };
+
+    void destroy(T* ptr)
+    {
+        (ptr)->~T();
+    }
+
    private:
     int node;
 };
